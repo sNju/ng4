@@ -1,0 +1,108 @@
+@import "../../../common_less/mixins_bundle.less";
+@import "../../../common_less/variables_bundle.less";
+
+.account-modal-dialog{
+    width: 365px;
+    margin: 60px auto;
+    @media(max-width:400px){
+    width: 280px;
+    }
+    .account-modal-content{
+        border-radius: 0;
+        .modal-header{
+            background-color: #9660b8;
+            color: #fff;
+            text-align: center;
+            position: relative;
+    
+            .modal-title{
+                font-family: @default-regular;
+                font-weight: normal;
+                font-size:16px;
+            }
+            button.close{
+                background-color: #fff;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                opacity: 1;
+                position: absolute;
+                right: -15px;
+                top: -15px;
+            }
+        }
+        .modal-body{
+            padding: 30px 40px 30px;
+            text-align: center;
+            position: relative;
+            .resend-otp{
+                position: relative;
+                margin-bottom: 15px;
+                 .otp {
+                    font-size: 12px;
+                    text-align: center;
+                    right: 10px;
+                    position: absolute;
+                    top: 11px;
+                        a{
+                            &:hover{
+                            text-decoration: none;
+                            cursor: pointer;
+                                }
+                            }
+                        }
+            }
+            input{
+                box-shadow: none;
+                border-radius:0;
+                border-color:#ececec;
+                height: 40px;
+            }
+            .text-danger {
+                color: #ff0000;
+                margin: 15px;
+            }
+            .otp-text-top{
+                font-size: @14;
+                color: #666;
+                text-align: center;
+                margin-bottom: 20px !important;
+            }
+
+            .otp-text-bottom{
+                font-size: 1.3em;
+                color: #666;
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom:0;
+            }
+            .btn-login-disable{
+                background-color:#ebebeb !important;
+                color:#989898 !important;
+                &:hover{
+                    background-color:#ebebeb !important;
+                    color:#989898 !important;
+                }
+                
+            }
+
+            .btn-login{
+                background-color: @base-theme;
+                border-radius: 0;
+                height: 40px;
+                border:1px solid #ececec;
+                color: @white;
+                &:hover{
+                    background-color:lighten( @base-theme, 7%);
+                }
+            }
+            .timer-text{
+                font-size: 1.6em;
+                color: #666;
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom:0;
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+<div class="modal modal-md fade" id="app-login" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog login-modal">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Login With Mobile Number</h4>
+            </div>
+
+            <div class="modal-body">
+                <form #loginform="ngForm" class="form" name="loginform" ngNativeValidate (submit)="sendotp()">
+                    <div class="form-group">
+                        <!-- input-login -->
+                        <p class="otp-text">Enter your mobile number here, We will send you one Time Password (OTP) to verify your mobile number for login</p>
+                        <input name="text" pattern="^[7-9][0-9]{9}$" [(ngModel)]="phone" type="tel" class="form-control" id="phone" placeholder="Enter Your Mobile Number" message="Phone number should be correct and manadatory" required>
+                    </div>
+                    <p class="text-danger return-msg" style="display: none;">Please enter valid mobile number</p>
+
+                    <p class="promo-text" (click)="getPromoCode()" *ngIf="!showPromoCode">Got a Promo Code</p>
+                    <div class="form-group promo-code-input" *ngIf="showPromoCode">
+                        <div class="promo-code-tooltip promo-hover">?
+                            <span class="promo-code-tooltiptext">Enter your promo code to avail the benifits</span>
+                        </div>
+                        <input name="text" type="text" class="form-control" id="promo-code" placeholder="Enter promo code (optional)">
+                    </div>
+                    <button class="btn btn-login btn-block" [disabled]="loginform.invalid" [ngClass]="{'btn-login-disable':loginform.invalid}">Send OTP</button>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <ul class="term-secton">
+                    <li>By login, you agree to GoParties’s</li>
+                    <li><span><a class="link-color hide-model" target="_blank">Terms of Service</a></span> and <span> <a class="link-color hide-model" target="_blank">Privacy Policy</a></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

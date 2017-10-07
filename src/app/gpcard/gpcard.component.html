@@ -1,0 +1,45 @@
+<!-- <div class="gpcard col-md-3">
+    <a [routerLink]="['/party' , obj.slug]">
+        <img class="gpcard-image" [ngStyle]="{ 'background-image': 'url(' + obj.banner + ')'}">
+    </a>
+    <div class="gpcard-footer">
+        <p class="gpcard-title">
+            {{obj.title}}
+        </p>
+        <p class="float-right">
+            <a [routerLink]="['/party/' + obj.slug]" class="btn gpcard-book">Book</a>
+        </p>
+    </div>
+</div> -->
+
+<div class-name="card-load-quarter" class="card-load-quarter">
+    <div class="gp-card">
+        <a [routerLink]="['/party' , obj.slug]">
+            <div class="card-zoom">
+                <div class="card-figure removeClass" [ngStyle]="{ 'background-image': 'url(' + obj.banner + ')'}">
+                </div>
+                <div class="deal">
+                    <p class="text-uppercase">hot deal</p>
+                </div>
+                <div class="overbox">
+                    <!-- <div class="status"> Idhar Karna hai </div> -->
+                    <div class="status"> {{obj.startdate|remaintimepipe:obj.enddate}} </div>
+
+                </div>
+            </div>
+        </a>
+        <div class="card-type">
+            <div class="profileTitle">
+                <a ng-href="">
+                    <h4 class="card-title">
+                        {{obj.title}}
+                    </h4>
+                    <p class="party-location">{{obj?.address}}</p>
+                </a>
+            </div>
+            <div class="date-likes-panel">
+                <button class="btn btn-book" [routerLink]="['/party/' + obj.slug]"><span>Book</span></button>
+            </div>
+        </div>
+    </div>
+</div>

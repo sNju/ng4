@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-12 col-lg-12 profile-title">
+
+            <p class="my-account-title" *ngIf="!isEdit">MY ACCOUNT</p>
+
+            <p class="edit-profile-title" *ngIf="isEdit">EDIT PROFILE</p>
+
+        </div>
+
+    </div>
+    <input id="profilepic" type="file" [ngStyle]="{'display':'none'}" accept="image/*" (change)="uploadFile()" #profilepic />
+    <div class="row section-box account-container">
+        <div class="col-lg-5 userprofile">
+            <div class="profile-cover" [ngStyle]="{ 'background-image': 'url(' + userObj.profile_pic + ')'}"></div>
+            <div class="profile-pic" [ngStyle]="{ 'background-image': 'url(' + userObj.profile_pic + ')'}">
+                <a (click)="profilepic.click()" [ngStyle]="{'cursor':'pointer'}">
+                    <div class="change-img-icon">
+                        <i class="fa fa-camera img-camera"></i>
+                    </div>
+                    <div class="spinner" *ngIf="uploading">
+                        <div class="double-bounce1"></div>
+                        <div class="double-bounce2"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-7 user-details">
+            <a class="edit-btn" *ngIf="!isEdit" (click)="editClick()">EDIT PROFILE</a>
+            <a class="cross-icon" *ngIf="isEdit" (click)="cancelClick()">X</a>
+            <h3 class="user-heading">Party-Goer Details</h3>
+            <div class="user-content">
+                <div class="form-group row">
+                    <label class="col-lg-3">Full Name:</label>
+                    <div class="col-lg-7">
+                        <input type="text" class="input-style" [ngClass]="{'bottom-border':!isEdit}" [(ngModel)]="userObj.name" [disabled]="!isEdit">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <form #emailForm="ngForm" class="form" name="cbcbc">
+                        <label class="col-lg-3">Email Id:</label>
+                        <div class="col-lg-7">
+                            <input type="text" class="input-style" [ngClass]="{'bottom-border':!isEdit}" [disabled]="!emailsave" [(ngModel)]="userObj.email" name="yes">
+                            <button class="edit-btn" (click)="emailsave=true" *ngIf="isEdit && userObj.email && !emailsave ">Edit</button>
+                            <button class="add-btn" (click)="emailsave=true" *ngIf="isEdit && !userObj.email && !emailsave ">add</button>
+                            <button class="add-btn" (click)="updateEmail(!userObj.email,emailForm.valid)" *ngIf="emailsave">Save</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="form-group row">
+                    <form #phoneForm="ngForm" class="form" name="avava">
+                        <label class="col-lg-3">Mobile Number:</label>
+                        <div class="col-lg-7">
+                            <input type="text" class="input-style" [ngClass]="{'bottom-border':!isEdit}" [disabled]="!phonesave" [(ngModel)]="userObj.phone" name="no">
+                            <button class="edit-btn" (click)="phonesave=true" *ngIf="isEdit && userObj.phone && !phonesave ">Edit</button>
+                            <button class="add-btn" (click)="phonesave=true" *ngIf="isEdit && !userObj.phone && !phonesave ">add</button>
+                            <button class="add-btn" (click)="updatePhone(!userObj.phone,phoneForm.valid)" *ngIf="phonesave">Save</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="pull-right update-btn">
+                    <button (click)="updateAll()" *ngIf="isEdit" class="btn-proceed btn-block text-uppercase"><span>UPDATE</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ng-template app-modal></ng-template>
+</div>
+<!-- end container -->

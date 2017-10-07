@@ -1,0 +1,59 @@
+  <header id="site-header" get-header-height>
+    <div class="container-fluid navbar navbar-fixed-top main-header-fixed">
+      <div class="row">
+        <div id="primarynav" class="primary-navbar">
+          <div class="container">
+            <div class="head-container">
+              <div class="navbar-header main-header">              
+                <a routerLink="/" class="navbar-brand logo-container">
+                  <div class="logo-img"><img src="https://s3.ap-south-1.amazonaws.com/gpcaweb/images/goparties-logo.png" alt="GoParties- Your Party App"></div>
+                  <div class="logo-text">
+                   <p class="text-uppercase text-brend logotitle">GOPARTIES</p>
+                   <p class="text-capitalize logosubtitle">Your Party App</p>
+                 </div>
+               </a> 
+            </div>
+
+            <button type="button" class="navbar-toggle navbarBtn" data-toggle="collapse" data-target="#headerNavbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse responsiveNavbar home-nav" id="headerNavbar">
+              <ul class="right-nav-panel pull-right">
+                <li class="call-back-panel">                
+                  <a class="btn-click text-uppercase stopFlickering" data-toggle="modal" (click)="callBackRequest();stopFlickring()"><i class="fa fa-phone call-icon"></i> Call Back Request</a>
+                </li>
+                <!-- <li class="location">
+                  <a href="" data-toggle="modal" data-target="#location-box" class="addLocationAfterSubmit text-uppercase RightNav">
+                    <span class="fa fa-map-marker locationIcon" aria-hidden="true"></span>
+                    {{$root.cityname}}
+                  </a>                    
+                </li> -->
+                <li *ngIf="!isLoggedIn"><a class="top-link RightNav" data-toggle="modal" (click)="login();stopFlickring()">Sign In</a></li> 
+                <li *ngIf="isLoggedIn" class="dropdown profile-dropdown ">
+                    <a href="#" data-toggle="dropdown">
+                      <img class="user-pic" [src]="user.profile_pic"><span class="user-name">{{user.name}}</span><span class="caret caret-down"></span>
+                    </a>
+
+                      <ul class="dropdown-menu dropdown-menu-right dropdown-responsive logout-dropdown">
+                        <li><a routerLink="/myaccount">Account</a></li>
+                        <li><a routerLink="/myaccount/bookings">My Booking</a></li>
+                        <li><a (click)="logout()" class="log-out">Logout</a></li>
+
+                      </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>        
+      </div>    
+    </div>
+  </div>
+  <ng-template app-auth></ng-template>
+  <!-- <app-login class="modal modal-md fade" id="app-login" tabindex="-1" role="dialog" aria-hidden="true" (onLogin)="onLogin($event)"></app-login> -->
+  <!-- <app-verify class="modal modal-md fade" [setPhone]="phone" id="app-verify" tabindex="-1" role="dialog" aria-hidden="true" (onVerify)="onVerify($event)"></app-verify> -->
+
+</header>
+

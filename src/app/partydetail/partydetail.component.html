@@ -1,0 +1,320 @@
+<style>
+    #partydetail-map {
+        width: 100%;
+        height: 150px;
+        background-color: grey;
+    }
+</style>
+<div class="container" *ngIf="party">
+    <ol class="breadcrumb bdcm">
+        <li><a href="#">Home</a></li>
+        <li class="active">{{party.title}}</li>
+    </ol>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="profile">
+                <div class="figure" [ngStyle]="{'background': 'url(' + party.banner + ')'}"></div>
+                <div class="content-aera">
+                    <h2 class="heading-large">{{party.title}}</h2>
+                    <p class="profile-add">{{party.address}}</p>
+                    <p class="profile-loc">{{party.startdate | date:'dd MMM yyyy hh:mm a'}} - {{party.enddate | date:'dd MMM yyyy hh:mm a'}}</p>
+                    <ul class="gnre-list clearfix">
+                        <li *ngFor="let genre of party.genre | explode ">
+                            <div class="genre-btn">
+                                {{genre}}
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-call">Call</button>
+                    <button class="btn btn-book"><div>Book Ticket</div><div class="sub-btn-txt">Gurantee Booking</div></button>
+                    <div class="catogery">
+                        <div class="star">
+                            <span>4.1</span>/<span>5</span>
+                        </div>
+                        <div class="vote-count">
+                            5459 voted
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tab Panel -->
+            <div class="tab-conatiner">
+                <ul class="nav nav-tabs nav-gp">
+                    <li class="active"><a data-toggle="tab" href="#overview-section">Overview</a></li>
+                    <li><a data-toggle="tab" href="#menu1">Book Ticket</a></li>
+                    <li><a data-toggle="tab" href="#menu2">Events</a></li>
+                    <li><a data-toggle="tab" href="#menu3">Photo (18)</a></li>
+                    <li><a data-toggle="tab" href="#menu4">Description</a></li>
+                </ul>
+                <div class="section-box tab-content">
+                    <div id="overview-section" class="tab-pane fade in active overview-container">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="row">
+                                    <!-- call details -->
+                                    <div class="col-lg-12 list-panel">
+                                        <h3 class="heading-medium m-b-5">
+                                            Call
+                                        </h3>
+                                        <!-- <p class="call-no">+91 9711-971-244</p> -->
+                                        <p class="call-no">{{party.contactphone}}</p>
+                                        <p class="subheading">Table booking recomended</p>
+                                    </div>
+                                    <!-- Genre Details -->
+                                    <div class="col-lg-12 list-panel">
+                                        <h3 class="heading-medium m-b-5">
+                                            Genre
+                                        </h3>
+                                        <p>{{party.genre}}</p>
+                                    </div>
+                                    <!-- Theme Details -->
+                                    <div class="col-lg-12 list-panel">
+                                        <h3 class="heading-medium m-b-5">
+                                            Theme
+                                        </h3>
+                                        <p>{{party.theme}}</p>
+                                    </div>
+                                    <!-- Cost Details -->
+                                    <div class="col-lg-12 list-panel">
+                                        <h3 class="heading-medium m-b-5">
+                                            Average Cost
+                                        </h3>
+                                        <p>1500(Approx)</p>
+                                        <p>With Unlimited food</p>
+                                        <p>Exclusive of applicable taxes</p>
+                                        <p class="m-t-15">All Cards Accespted</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="row">
+                                    <!-- Time Details-->
+                                    <div class="col-lg-12 list-panel">
+                                        <h3 class="heading-medium m-b-5">
+                                            Opening Hours
+                                        </h3>
+                                        <p>Today 12:30 PM to 12:30 AM</p>
+                                        <p class="load-content">See More</p>
+                                    </div>
+                                    <!-- Genre Details -->
+                                    <div class="col-lg-12 list-panel">
+                                        <h3 class="heading-medium m-b-5">
+                                            {{party.address}}
+                                        </h3>
+                                        <p>{{party.location}}</p>
+                                        <div id="partydetail-map"></div>
+                                        <div class="map-panel m-t-30">
+                                            <p class="map-btn">Get Direction</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="row">
+                                    <!-- call details -->
+                                    <div class="col-lg-12 list-panel">
+                                        <h3 class="heading-medium m-b-5">
+                                            More Info
+                                        </h3>
+                                        <ul class="moreinfo">
+                                            <li>Full Bar Available</li>
+                                            <li>Nightlife</li>
+                                            <li>Live Music</li>
+                                            <li>Smoking Area</li>
+                                            <li>Full Night DJ</li>
+                                            <li>Wifi</li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Deals -->
+            <div class="section-box">
+                <h2 class="heading-medium">
+                    Deals
+                </h2>
+                <p>Free Beer on Arrival from 12:00 PM- 03:00 PM</p>
+                <p class="f-b">Offer Valid at Sat 15 Sep, 2017-28 Sep, 2017</p>
+                <p class="subheading">terms &amp; condition apply</p>
+            </div>
+            <!-- Photo -->
+            <div class="section-box photo-container">
+                <h2 class="heading-medium">
+                    Gallery
+                </h2>
+                <div class="image-gallery lightgallery" id="lightgallery">
+                    <a href="https://content3.jdmagicbox.com/comp/delhi/w2/011pxx11.xx11.130511162100.j2w2/catalogue/warehouse-cafe-connaught-place-delhi-hv0e.jpg">
+                        <img src="https://content3.jdmagicbox.com/comp/delhi/w2/011pxx11.xx11.130511162100.j2w2/catalogue/warehouse-cafe-connaught-place-delhi-hv0e.jpg" />
+                    </a>
+                    <a href="https://content3.jdmagicbox.com/comp/delhi/w2/011pxx11.xx11.130511162100.j2w2/catalogue/warehouse-cafe-connaught-place-delhi-hv0e.jpg">
+                        <img src="https://content3.jdmagicbox.com/comp/delhi/w2/011pxx11.xx11.130511162100.j2w2/catalogue/warehouse-cafe-connaught-place-delhi-hv0e.jpg" />
+                    </a>
+                </div>
+                <p class="text-right"><a href="#" class="load-more">View More</a></p>
+            </div>
+            <!-- Description -->
+            <div class="section-box">
+                <h2 class="heading-medium">
+                    Description
+                </h2>
+                <p>The moment you enter Tamasha, the fancy ceiling lights is the first thing you notice. The lights are complemented with little mirrors, which give you the feeling of being under starlight. The restaurant is in rectangular shape, with one
+                    side having the bar and tables spread across the place. The other 2 sides of the place have the seating area, with seating varying from comfortable couches to high tables and chairs near the bar. The bigger tables for groups with 8-10
+                    people, are on the sides whereas the centre area has smaller tables.</p>
+            </div>
+
+        </div>
+        <!--End Col-8-->
+        <div class="col-lg-4">
+            <div class="section-box">
+                <h2 class="heading-medium">
+                    Deals
+                </h2>
+                <p>Free Beer on Arrival from 12:00 PM- 03:00 PM</p>
+                <p class="f-b">Offer Valid at Sat 15 Sep, 2017-28 Sep, 2017</p>
+                <p class="subheading">terms &amp; condition apply</p>
+            </div>
+            <div class="section-box">
+                <div class="heading-container">
+                    <h2 class="heading-medium">
+                        Follow us
+                    </h2>
+                    <p class="subheading">For Latest Party and Event</p>
+                </div>
+                <ul class="social-media clearfix">
+                    <li class="facebook">
+                        <a href="https://www.facebook.com/goparties/" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li class="twitter">
+                        <a href="https://twitter.com/go_parties" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li class="gplus">
+                        <a href="https://plus.google.com/+Goparties" target="_blank" title="Google Plus"><i class="fa fa-google-plus"></i></a>>
+                    </li>
+                    <li class="instagram">
+                        <a href="https://www.instagram.com/goparties/" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
+                    </li>
+                    <li class="youtube">
+                        <a href="#" target="_blank" title="Youtube"><i class="fa fa-youtube-play"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="section-box">
+                <div class="heading-container">
+                    <h2 class="heading-medium">
+                        Events
+                    </h2>
+                    <p class="subheading">Enjoy the Nightlife</p>
+                </div>
+                <ul class="card-container clearfix">
+                    <li>
+                        <div class="gp-p-card">
+                            <div class="card-figure" style="background-image:url(https://content3.jdmagicbox.com/comp/delhi/w2/011pxx11.xx11.130511162100.j2w2/catalogue/warehouse-cafe-connaught-place-delhi-hv0e.jpg)"></div>
+                            <div class="card-type">
+                                <h3 class="card-title">Saturday Smash</h3>
+                                <p class="card-location">
+                                    Dlf Phase 1 Gurgain
+                                </p>
+                                <p class="card-deal">Flat 50% off</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="gp-p-card">
+                            <div class="card-figure" style="background-image:url(https://content3.jdmagicbox.com/comp/delhi/w2/011pxx11.xx11.130511162100.j2w2/catalogue/warehouse-cafe-connaught-place-delhi-hv0e.jpg)"></div>
+                            <div class="card-type">
+                                <h3 class="card-title">Saturday Smash</h3>
+                                <p class="card-location">
+                                    Dlf Phase 1 Gurgain
+                                </p>
+                                <p class="card-deal">Flat 50% off</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="gp-p-card">
+                            <div class="card-figure" style="background-image:url(https://content3.jdmagicbox.com/comp/delhi/w2/011pxx11.xx11.130511162100.j2w2/catalogue/warehouse-cafe-connaught-place-delhi-hv0e.jpg)"></div>
+                            <div class="card-type">
+                                <h3 class="card-title">Saturday Smash</h3>
+                                <p class="card-location">
+                                    Dlf Phase 1 Gurgain
+                                </p>
+                                <p class="card-deal">Flat 50% off</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="section-box">
+                <div class="heading-container">
+                    <h2 class="heading-medium">
+                        Similar Party Spots
+                    </h2>
+                    <p class="subheading">Dj, Band, Pub, Bar</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="gp-list">
+                            <div class="list-figure" style="background-image:url(https://content3.jdmagicbox.com/comp/delhi/w2/011pxx11.xx11.130511162100.j2w2/catalogue/warehouse-cafe-connaught-place-delhi-hv0e.jpg)"></div>
+                            <div class="list-type">
+                                <h3 class="list-title">Saturday Smash</h3>
+                                <p class="list-location">
+                                    Cyber Hub, Dlf Phase 1 Gurugram
+                                </p>
+                            </div>
+                        </div>
+                        <div class="gp-list">
+                            <div class="list-figure" style="background-image:url(https://content3.jdmagicbox.com/comp/delhi/w2/011pxx11.xx11.130511162100.j2w2/catalogue/warehouse-cafe-connaught-place-delhi-hv0e.jpg)"></div>
+                            <div class="list-type">
+                                <h3 class="list-title">Saturday Smash</h3>
+                                <p class="list-location">
+                                    Cyber Hub, Dlf Phase 1 Gurugram
+                                </p>
+                            </div>
+                        </div>
+                        <div class="gp-list">
+                            <div class="list-figure" style="background-image:url(https://content3.jdmagicbox.com/comp/delhi/w2/011pxx11.xx11.130511162100.j2w2/catalogue/warehouse-cafe-connaught-place-delhi-hv0e.jpg)"></div>
+                            <div class="list-type">
+                                <h3 class="list-title">Saturday Smash</h3>
+                                <p class="list-location">
+                                    Cyber Hub, Dlf Phase 1 Gurugram
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="section-box">
+                <div class="heading-container">
+                    <h2 class="app-heading">
+                        Get the GoParties App
+                    </h2>
+                    <p class="app-subheading">See upcoming parties and photo for nearby party spot and bookmark your favoutire place on the go</p>
+                </div>
+                <div class="image-section">
+                    <img src="https://s3.ap-south-1.amazonaws.com/gpcaweb/Web_Content/app-img.jpg" class="app-image">
+                </div>
+                <div class="form-group  app-input">
+                    <input type="text" placeholder="Enter Your Mobile No" [(ngModel)]="number" class="form-control">
+                    <span class="send-btn"><a (click)="getLink()">send</a></span>
+                    <!-- <button (click)="getLink()">send</button> -->
+                </div>
+
+                <div class="app-icon clearfix">
+                    <p class="text-center">OR</p>
+                    <div class="col-lg-6">
+                        <a href="https://play.google.com/store/apps/details?id=com.goparties.gpuser&amp;hl=en" target="_blank" title="Go Parties App"><img src="https://s3.ap-south-1.amazonaws.com/gpcaweb/images/play-store.png" alt="GoParties-PlayStore">
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <a href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1084955093&amp;mt=8" target="_blank" title="Go Parties App"><img src="https://s3.ap-south-1.amazonaws.com/gpcaweb/images/app-store.png" alt="GoParties -Itunes">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

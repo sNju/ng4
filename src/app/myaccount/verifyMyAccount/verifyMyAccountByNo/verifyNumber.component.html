@@ -1,0 +1,42 @@
+<div class="modal modal-md fade" id="app-verifyPhone" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <div class="modal-dialog account-modal-dialog">
+
+        <div class="modal-content account-modal-content">
+
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                <h4 class="modal-title">Enter OTP sent to {{phone}}</h4>
+
+            </div>
+
+            <div class="modal-body">
+
+                <form #loginform="ngForm" class="form" name="signupotpform" ngNativeValidate (submit)="verifyNumber()">
+
+                    <p class="otp-text-top" *ngIf="otpSend">OTP sent successfully. If you don’t receive in 30 seconds, click on Resend OTP.</p>
+
+                    <p class="otp-text-top" *ngIf="otpResend">OTP resent successfully. If you don’t receive in 30 seconds, click on Resend OTP.</p>
+
+                    <div class="form-group resend-otp">
+
+                        <p class="otp"><a (click)="resendNumber()">Resend <span class="text-uppercase">OTP</span></a></p>
+
+                        <input name="otp" pattern="[0-9]{4,6}" type="password" [(ngModel)]="otp" name="one time password" placeholder="Enter OTP" class="form-control" required>
+
+                        <p class="text-danger return-msg" *ngIf="otpWrong">Please enter valid OTP</p>
+
+                    </div>
+                    <button type="submit" class="btn btn-login btn-block" [disabled]="loginform.invalid" [ngClass]="{'btn-login-disable':loginform.invalid}">Login</button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

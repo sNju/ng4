@@ -1,0 +1,182 @@
+<style type="text/css">
+    body {
+        font-family: Arial;
+        font-size: 10pt;
+    }
+</style>
+<div class="homecomponent">
+
+    <!--Top Banner-->
+    <section id="slider" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#slider" *ngFor="let x of slider;let i = index" [attr.data-slide-to]="i" ngClass="i == 0 ? 'active' : ''"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div *ngFor="let obj of slider; let k = index" [ngClass]="k == 0 ? 'item active' : 'item'" class="imgGradient">
+                <a [routerLink]="['/party/' + obj.party.slug]">
+                    <div class="slide-img" [ngStyle]="{ 'background-image': 'url(' + obj.party.banner + ')'}">
+                        <p class="slide-title">{{obj.party.title}}</p>
+                    </div>
+                </a>
+                <div class="slider-overlay"></div>
+            </div>
+        </div>
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#slider" role="button" data-slide="prev" (click)="$event.preventDefault();">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#slider" role="button" data-slide="next" (click)="$event.preventDefault();">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </section>
+    <span>Location:</span>
+    <input type="text" id="txtPlaces" style="width: 250px" placeholder="Enter a location" />
+
+    <!-- <ngb-carousel *ngIf="slider">
+    <ng-template ngbSlide *ngFor="let obj of slider">
+        <a [routerLink]="['/party/' + obj.party.slug]">
+          <img class="slider-image" [ngStyle]="{ 'background-image': 'url(' + obj.party.banner + ')'}">
+          <div class="carousel-caption">
+            <h3>{{ obj.party.title }}</h3>
+             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> 
+           </div>
+        </a>
+    </ng-template>
+  </ngb-carousel> -->
+    <div class="row fast-search-container">
+        <div class="col-lg-6 fast-search">
+            <a href="#">
+                <div class="search-panel today-panel">
+                    <img src="https://s3.ap-south-1.amazonaws.com/gpcaweb/new_web/today.png">
+                    <p>Today</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="search-panel tomorrow-panel">
+                    <img src="https://s3.ap-south-1.amazonaws.com/gpcaweb/new_web/tomorrow.png">
+                    <p>Tomorrow</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="search-panel weekend-panel">
+                    <img src="https://s3.ap-south-1.amazonaws.com/gpcaweb/new_web/weekend.png">
+                    <p>Weekend</p>
+                </div>
+            </a>
+        </div>
+        <!-- Headings -->
+        <div class="col-lg-12 fast-search">
+            <h3 class="gnre-heading">Pic Your Mood</h3>
+        </div>
+        <!-- theme deatils -->
+        <div class="col-lg-12 fast-search">
+            <button class="gnre-theme active">All</button>
+            <button class="gnre-theme">Rock</button>
+            <button class="gnre-theme" disabled>DJ</button>
+            <button class="gnre-theme">Communities</button>
+            <button class="gnre-theme">Conferences &amp; Workshop</button>
+            <button class="gnre-theme">Exhibition &amp; Performance</button>
+            <button class="gnre-theme">Food &amp; Drink</button>
+            <button class="gnre-theme">Music</button>
+            <button class="gnre-theme">Navratri</button>
+        </div>
+        <!-- Search Filter deatils -->
+        <div class="col-lg-12 fast-search">
+            <div class="search-filter">
+                <div class="dropdown-container">
+                    <div class="dropdown">
+                        <button class="btn filter-btn dropdown-toggle" type="button" data-toggle="dropdown">
+                            <i class="fa fa-map-marker m-r-10"></i>By Location
+                        <i class="fa fa-angle-down filter-icon m-l-10"></i></button>
+                        <ul class="dropdown-menu filter-drop">
+                            <li><a href="#">Delhi NCR</a></li>
+                            <li><a href="#">Mumbai</a></li>
+                            <li><a href="#">Hyderabad</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown-container">
+                    <div class="dropdown">
+                        <button class="btn filter-btn dropdown-toggle" type="button" data-toggle="dropdown">
+                        <i class="fa fa-hand-peace-o  filter-icon m-r-10"></i>
+                            Genre
+                        <i class="fa fa-angle-down filter-icon m-l-10"></i></button>
+                        <ul class="dropdown-menu filter-drop">
+                            <li><a href="#">Rock</a></li>
+                            <li><a href="#">Ladies Night</a></li>
+                            <li><a href="#">Just Chill</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown-container">
+                    <div class="dropdown">
+                        <button class="btn filter-btn dropdown-toggle" type="button" data-toggle="dropdown">
+                            <i class="fa fa-inr fa-filter m-r-10"></i>Price
+                        <i class="fa fa-angle-down filter-icon m-l-10"></i></button>
+                        <ul class="dropdown-menu filter-drop">
+                            <li><a href="#">0-500</a></li>
+                            <li><a href="#">501-1000</a></li>
+                            <li><a href="#">1001-2000</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown-container">
+                    <div class="dropdown">
+                        <button class="btn filter-btn dropdown-toggle" type="button" data-toggle="dropdown">
+                            <i class="fa fa-heart-o m-r-10"></i>Pic Your Mood
+                        <i class="fa fa-angle-down filter-icon m-l-10"></i></button>
+                        <ul class="dropdown-menu filter-drop">
+                            <li><a href="#">0-500</a></li>
+                            <li><a href="#">501-1000</a></li>
+                            <li><a href="#">1001-2000</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown-container">
+                    <div class="dropdown">
+                        <button class="btn filter-btn dropdown-toggle" type="button" data-toggle="dropdown">
+                            <i class="fa fa-microphone fa-filter m-r-10"></i>Artist
+                        <i class="fa fa-angle-down filter-icon m-l-10"></i></button>
+                        <ul class="dropdown-menu filter-drop">
+                            <li><a href="#">0-500</a></li>
+                            <li><a href="#">501-1000</a></li>
+                            <li><a href="#">1001-2000</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown-container">
+                    <div class="dropdown">
+                        <button class="btn filter-btn dropdown-toggle" type="button" data-toggle="dropdown">
+                            <i class="fa fa-thumbs-o-up m-r-10"></i>Performance
+                        <i class="fa fa-angle-down filter-icon m-l-10"></i></button>
+                        <ul class="dropdown-menu filter-drop">
+                            <li><a href="#">0-500</a></li>
+                            <li><a href="#">501-1000</a></li>
+                            <li><a href="#">1001-2000</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown-container">
+                    <input type="text" class="search-input" placeholder="search for party" />
+                    <a href="#" class="search-icon"><span><i class="fa fa-search" aria-hidden="true"></i></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <input type="checkbox" [checked]="search.deal" (change)="search.deal=!search.deal;searchAsRequired()" >asdasd
+  <input type="checkbox" [checked]="search.recommended" (change)="search.recommended=!search.recommended;searchAsRequired()" >asdasd
+
+    <div *ngIf="arr1" class="clearfix col-md-12 homeresult">
+        <app-gpcard *ngFor="let obj of arr1" [obj]="obj.party"></app-gpcard>
+    </div>
+    <div *ngIf="arr2" class="clearfix col-md-12 homeresult">
+        <app-gpcard *ngFor="let obj of arr2" [obj]="obj.party"></app-gpcard>
+    </div>
+</div>
+
+<div class="clearfix"></div>

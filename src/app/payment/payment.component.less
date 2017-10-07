@@ -1,0 +1,41 @@
+.payment-modal {
+    width: 390px;
+    margin: 30px auto;
+    @media(max-width:400px) {
+      width: 280px;
+    }
+	.modal-content {
+        border-radius: 0;
+        padding: 30px;
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+        .modal-header {
+            background-color: #9660b8;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            button.close {
+                background-color: #fff;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                opacity: 1;
+                position: absolute;
+                right: -15px;
+                top: -15px;
+            }
+        }
+
+        .modal-body {
+            #payment-em {
+                height: 450px;
+                width: 100%;
+                background: #fff;
+            }
+            padding: 0px;
+            text-align: center;
+            position: relative;
+        }
+    }
+}

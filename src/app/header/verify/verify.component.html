@@ -1,0 +1,32 @@
+<div class="modal modal-md fade" id="app-verify" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog login-modal">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Verify Your Mobile Number</h4>
+            </div>
+            <div class="modal-body">
+                <form #loginform="ngForm" class="form" name="signupotpform" ngNativeValidate (submit)="verifyotp()">
+                    <p class="otp-text" *ngIf="otpSend">OTP sent successfully. If you don’t receive in 30 seconds, click on Resend OTP.</p>
+                    <p class="otp-text" *ngIf="otpResend">OTP resent successfully. If you don’t receive in 30 seconds, click on Resend OTP.</p>
+
+                    <div class="form-group resend-otp">
+                        <p class="otp" (click)="resendOtp()">Resend <span class="text-uppercase">OTP</span></p>
+                        <input name="otp" pattern="[0-9]{4,6}" type="password" [(ngModel)]="otp" name="one time password" placeholder="Enter OTP" class="form-control" required>
+                        <p class="text-danger return-msg" *ngIf="wrongOtp">Please enter valid otp</p>
+
+                    </div>
+
+                    <button type="submit" class="btn btn-login btn-block" [disabled]="loginform.invalid" [ngClass]="{'btn-login-disable':loginform.invalid}">Login</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <ul class="term-secton">
+                    <li>By login, you agree to GoParties’s</li>
+                    <li><span><a ng-href="/tnc" class="link-color hide-model" target="_blank">Terms of Service</a></span> and <span> <a ng-href="/privacyPolicy" class="link-color hide-model" target="_blank">Privacy Policy</a></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
